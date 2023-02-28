@@ -80,7 +80,7 @@ export default function ObjectDetection() {
             onClick={()=>{predictionFunction()}}
             className={styles.button}
             >
-                Start Detection
+                Start Detection Function
             </button>
             <div className={styles.container}>
                 <Webcam 
