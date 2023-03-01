@@ -1,13 +1,23 @@
 import './App.css';
-import ObjectDetection from './components/ObjectDetection';
-import Implementation from './components/Implementation';
+import Layout from './components/Layout';
+import Contact from './pages/contact/Contact';
+import ProjectsLanding from './pages/projects/projects-landing';
+import NoPage from './components/NoPage';
+import Home from './pages/home/Home';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      {/* <ObjectDetection /> */}
-      <Implementation />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />} >
+          <Route index element={<Home />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="projects-landing" element={<ProjectsLanding />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
