@@ -37,7 +37,6 @@ export default function ObjectDetection() {
         if (predictions.length > 0) {
             console.log(predictions);
             for (let n = 0; n < predictions.length; n++) {
-            console.log(n);
                 if (predictions[n].score > 0.8) {
                     //Threshold is 0.8 or 80%
                     //Extracting the coordinate and the bounding box information
