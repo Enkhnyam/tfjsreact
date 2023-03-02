@@ -3,15 +3,18 @@ import * as tf from "@tensorflow/tfjs";
 import styles from "./ObjectDetectionTFJSR.module.css";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import { drawRect } from "../../../components/DrawRect";
+import Loading from '../../../components/Loading';
 import WebcamComponent from '../../../components/WebcamComponent';
 
 function ObjectDetectionTFJSR() {
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
+    const [loading, setLoading] = useState(true);
 
     async function runCoco() {
-        const model = await cocoSsd.load();
 
+        const model = await cocoSsd.load();
+        setLoading(false);
         setInterval(() => {
             detect(model);
         }, 10);
@@ -29,12 +32,10 @@ function ObjectDetectionTFJSR() {
 
            canvasRef.current.width = videoWidth;
            canvasRef.current.height = videoHeight;
-
            const obj = await model.detect(video);
            console.log(obj);
             
            const ctx = canvasRef.current.getContext("2d");
-
            drawRect(obj, ctx);
         }
     };
@@ -53,31 +54,35 @@ function ObjectDetectionTFJSR() {
         zindex: 9,
         width: 640,
         height: 480,
+        border: "3px solid gray"
     }
 
     return (
-        <header className="App-header">
-            <WebcamComponent
-                ref={webcamRef}
-                muted={true} 
-                style={webCamStyle}
-            />
+       <div>
+            {loading ? <Loading /> :
+            <header className="App-header">
+                <WebcamComponent
+                    ref={webcamRef}
+                    muted={true} 
+                    style={webCamStyle}
+                />
 
-            <canvas
-                ref={canvasRef}
-                style={{
-                    position: "absolute",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                    left: 0,
-                    right: 0,
-                    textAlign: "center",
-                    zindex: 8,
-                    width: 640,
-                    height: 480,
-                }}
-            />
-      </header>
+                <canvas
+                    ref={canvasRef}
+                    style={{
+                        position: "absolute",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                        left: 0,
+                        right: 0,
+                        textAlign: "center",
+                        zindex: 8,
+                        width: 640,
+                        height: 480,
+                    }}
+                />
+            </header>}
+       </div>
     );
 }
 
