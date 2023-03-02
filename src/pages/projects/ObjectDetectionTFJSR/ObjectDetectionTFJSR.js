@@ -34,7 +34,6 @@ function ObjectDetectionTFJSR() {
            console.log(obj);
             
            const ctx = canvasRef.current.getContext("2d");
-
            drawRect(obj, ctx);
         }
     };
@@ -53,6 +52,7 @@ function ObjectDetectionTFJSR() {
         zindex: 9,
         width: 640,
         height: 480,
+        border: "3px solid gray"
     }
 
     return (
