@@ -6,6 +6,7 @@ import NoPage from './pages/sonstige/NoPage';
 import Home from './pages/home/Home';
 import ObjectDetectionTFJSR from './pages/projects/ObjectDetectionTFJSR/ObjectDetectionTFJSR';
 import ComingSoon from './pages/sonstige/ComingSoon';
+import PoseDetection from './pages/projects/PoseDetection/PoseDetection';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="projects-landing" element={<ProjectsLanding />} />
           <Route path="objectdetectiontfjsr" element={<ObjectDetectionTFJSR />} />
+          <Route path="posedetection" element={<PoseDetection />} />
           <Route path="comingsoon" element={<ComingSoon/>} />
           <Route path="*" element={<NoPage />} />
         </Route>
