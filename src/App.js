@@ -8,6 +8,7 @@ import ObjectDetectionTFJSR from './pages/projects/ObjectDetectionTFJSR/ObjectDe
 import ComingSoon from './pages/sonstige/ComingSoon';
 import PoseDetection from './pages/projects/PoseDetection/PoseDetection';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PoseDetectionTFHUB from './pages/projects/PoseDetection/PoseDetectionTFHUB';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="projects-landing" element={<ProjectsLanding />} />
           <Route path="objectdetectiontfjsr" element={<ObjectDetectionTFJSR />} />
           <Route path="posedetection" element={<PoseDetection />} />
+          <Route path="posedetectiontfhub" element={<PoseDetectionTFHUB />} />
           <Route path="comingsoon" element={<ComingSoon/>} />
           <Route path="*" element={<NoPage />} />
         </Route>

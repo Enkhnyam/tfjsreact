@@ -16,9 +16,16 @@ function ProjectsLanding() {
         {
             id: 1,
             title: 'Pose Detection',
-            text: 'Pose Detection using a premade model from TFHub and using it on a react app',
+            text: 'Pose Detection using a premade model from Tensorflow.js and using it on a react app',
             path: require('../../images/jump.gif'),
             link: 'posedetection',
+        },
+        {
+            id: 2,
+            title: 'Pose Detection (With TFHub)',
+            text: 'Pose Detection using a premade model from TFHub and using it on a react app',
+            path: require('../../images/jump.gif'),
+            link: 'posedetectiontfhub',
         },
     ];
 
