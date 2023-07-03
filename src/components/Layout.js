@@ -9,6 +9,7 @@ function Layout() {
             <Navbar />
             <div className="main">
                 <Outlet />
+                <p>hello</p>
             </div>
         </>
     )
